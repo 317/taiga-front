@@ -304,9 +304,8 @@ class BacklogController extends mixOf(taiga.Controller, taiga.PageMixin, taiga.F
             # We can't assure when this exactly happens so we need a defer
             scopeDefer @scope, =>
                 @scope.$broadcast("userstories:loaded")
-            @.tag_point=0
-            #317
             if @.getUrlFilters().tags != undefined
+              @.tag_point=0
               for userstory in userstories
                 @.tag_point += userstory.total_points
               console.log(@.tag_point)
